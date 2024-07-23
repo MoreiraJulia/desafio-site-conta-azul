@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: "Montserrat", sans-serif;
+}
+.icone-search {
+    font-size: 25px;
+    color: #999;
+}
+.icon-redes-sociais{
+  font-size: 18px;
+  color: #999;
+}
+.icon-redes-sociais:hover,
+.color-cinza-footer{
+  color: hsl(0, 0%, 40%);
+}
+a.bloco-contato {
+  flex-flow: column wrap;
+  flex-basis: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: background .3s;
+}
+.fundo-swiper-azul{
+  background: linear-gradient(#2687e900 23.67%, #2687e9 100.31%);
+}
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  position: relative;
+  top: 32px;
+}
+.swiper-pagination-bullet-active{
+  background-color: #2687e9 !important;
+    border-color: #0000;
+}
+span.swiper-pagination-bullet{
+  background: 0 0;
+  border: 1px solid #6666;
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+}
+.swiper-button {
+  display: flex;
+  position: absolute;
+  top: calc(50% - 12px);
+  z-index: 10;
+  cursor: pointer;
+}
+.swiper-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.swiper-button.image-swiper-button-next {
+  right: -40px;
+}
+.image-swiper-button-prev {
+  left: -40px;
+}
+.swiper-button-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 640px){
+  a.bloco-contato {
+    flex-basis: 0;
+    min-width: 288px;
+    min-height: 166px;
+    padding: 40px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .logo-footer{
+    text-align: -webkit-center;
+  }
+}
+@media screen and (max-width: 1300px){
+  .swiper-button{
+    display: none;
+  }
+}
