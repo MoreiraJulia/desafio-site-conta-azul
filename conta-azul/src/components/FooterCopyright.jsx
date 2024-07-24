@@ -7,6 +7,7 @@ function FooterCopyright() {
             <section className="block lg:flex justify-between pt-6 pb-10">
                 <div className="flex justify-center lg:justify-start gap-2 mb-5 lg:mb-0">
                     {redesSociais.map((item) => (
+                        // eslint-disable-next-line react/jsx-key
                         <a href={item.url} title={item.name}>
                             {item.image}
                         </a>
