@@ -1,6 +1,6 @@
 # Desafio Site Conta Azul
-No presente projeto foi desenvolvida a página inicial do site [Conta azul](https://ca.contaazul.com/).
-A ideia do projeto era reproduzir a tela inicial com as funcionalidades nela presente, com foco no responsivo
+No presente projeto, foi desenvolvida a página inicial do site [Conta azul](https://ca.contaazul.com/).
+A ideia do projeto era reproduzir a tela inicial com as funcionalidades nela presentes, com foco no responsivo.
 
 --------
 
