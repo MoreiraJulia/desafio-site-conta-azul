@@ -1,4 +1,4 @@
-const ListSegmentosSwiper = [
+const ListaSegmentosSwiper = [
     {
         name:"Publicidade e Marketing", 
         urlImage:"https://ca.contaazul.com/wp-content/uploads/2024/01/publi-market-slide.png",
@@ -51,4 +51,4 @@ const ListSegmentosSwiper = [
     },
 ]
 
-export default ListSegmentosSwiper;
+export default ListaSegmentosSwiper;

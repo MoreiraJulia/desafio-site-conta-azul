@@ -6,7 +6,7 @@ function LogoDoSite() {
             <a href=""><img
                 alt="Logo Conta Azul"
                 src={logo}
-                className="h-5 w-auto"
+                className="h-4 md:h-5 w-auto"
             /></a>
         </>
     )

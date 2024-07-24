@@ -1,15 +1,13 @@
 import { Pagination, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ListSegmentosSwiper from './ListSegmentosSwiper';
+import ListaSegmentosSwiper from '../services/ListaSegmentosSwiper';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 export default function SwiperSegmentos()  {
   return (
     <Swiper
-      // install Swiper modules
       modules={[Pagination, A11y]}
       spaceBetween={50}
       slidesPerView={1.3}
@@ -22,7 +20,7 @@ export default function SwiperSegmentos()  {
         1200: {slidesPerView: 5,},
       }}
       className="pb-8">
-      {ListSegmentosSwiper.map((item) => ( 
+      {ListaSegmentosSwiper.map((item) => ( 
         <SwiperSlide>
           <a href={item.link}>
             <figure className="rounded-[5px] relative overflow-hidden	">

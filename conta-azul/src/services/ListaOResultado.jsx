@@ -1,4 +1,4 @@
-const ListOResultado = [
+const ListaOResultado = [
     {
         name:(
             <>
@@ -46,4 +46,4 @@ const ListOResultado = [
     },
 ]
 
-export default ListOResultado;
+export default ListaOResultado;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
-import navigation from './HeaderNavigation';
+import navigation from '../services/HeaderNavigation';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 
 function HeaderListNavigationDesktop({ items }) {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
@@ -50,7 +51,7 @@ function HeaderListNavigationDesktop({ items }) {
                 className={
                   item.subCategorias.length <= 5
                     ? 'grid grid-rows-5 grid-flow-col gap-x-6 gap-y-4 max-w-full w-max'
-                    : 'grid grid-rows-4 grid-flow-col gap-x-6 gap-y-4 max-w-full w-max'
+                    : 'grid grid-rows-6 2xl:grid-rows-4 grid-flow-col gap-x-2 gap-y-4 max-w-full w-max'
                 }
               >
                 {item.subCategorias.map((subcategoria, subIndex) => (
@@ -101,77 +102,137 @@ function HeaderListNavigationDesktop({ items }) {
   );
 }
 
+// function HeaderListNavigationMobile(){
+//   const [openMenu, setOpenMenu] = useState(null);
 
-// function HeaderListNavigationDesktop(){
-    
-//     return(
+//   const toggleMenu = (index) => {
+//     setOpenMenu(openMenu === index ? null : index); 
+//   };
+
+//   return(
+//     <div className="text-center">
+//       {navigation.map((item, index) => (
 //         <>
-//         {navigation.map((item) => (
-//             <div id="bouton" key={item.name} className="relative group relative group h-20 self-center flex">
-//             <a
-//                 href={item.href}
-//                 className="text-gray-conta-azul text-sm font-medium flex items-center gap-1.5"
-//             >
+//           <Menu as="div" className="relative text-center">
+//             <div className="text-center">
+//               <MenuButton  onClick={() => toggleMenu(index)} className="inline-flex text-center w-full justify-center px-3 py-4 text-sm font-medium text-gray-900 border-0 btn-mobile-menu">
 //                 {item.name}
 //                 {item.subCategorias && (
-//                 <IoIosArrowDown className="ml-1 transition-transform duration-500 ease-in-out transform group-hover:rotate-180 "/>
+//                   <IoIosArrowDown
+//                     className={`ml-2 transition-transform duration-300 ${openMenu === index ? 'rotate-180' : 'rotate-0'}`}
+//                   />
 //                 )}
-//             </a>
-//             {item.subCategorias && (
-//                 <div className="absolute hidden group-hover:block bg-white shadow-lg transition delay-500 duration-500 ease-in-out p-6 mt-[81px] hover:delay-500">
-//                     <div className={item.subCategorias.length <= 5 
-//                         ? "grid grid-rows-5 grid-flow-col gap-x-6 gap-y-4 max-w-full w-max" 
-//                         : "grid grid-rows-4 grid-flow-col gap-x-6 gap-y-4 max-w-full w-max"
-//                     }>
-//                         {item.subCategorias.map((subcategoria, index) => (
-//                             <div key={index} className="relative group">
-//                                 <a href={subcategoria.href} className="px-4 py-2 text-sm font-medium text-gray-800 flex items-center gap-1.5">
-//                                     {subcategoria.nameSub}
-//                                     {subcategoria.subCategoriaDois && (
-//                                         <IoIosArrowDown className="ml-1 transition-transform duration-500 ease-in-out transform group-hover:rotate-180"/>
-//                                     )}
-//                                 </a>
-//                                 {subcategoria.subCategoriaDois && (
-//                                     <div className="absolute hidden group-hover:block bg-white shadow-lg mt-[-25px] transition-all duration-500 ease-in-out hover:ease-in p-6 ml-7 left-full top-0 group">
-//                                         <div className="grid grid-rows-4 grid-flow-col gap-x-6 gap-y-4 max-w-full w-max">
-//                                             {subcategoria.subCategoriaDois.map((subcategoriaDois, subIndex) => (
-//                                                 <a key={subIndex} href={subcategoriaDois.href} className="relative group px-4 py-2 text-sm font-medium text-gray-800">
-//                                                     {subcategoriaDois.nameSubCategoriaDois}
-//                                                     <div className="absolute hidden group-hover:block bg-white shadow-lg mt-[-25px] transition-all duration-500 ease-in-out hover:ease-in p-6 ml-7 left-full top-0">
-//                                                         <div className="grid grid-rows-4 grid-flow-col gap-x-6 gap-y-4 max-w-full w-max">
-//                                                             {/* Conteúdo do submenu do item filho */}
-//                                                         </div>
-//                                                     </div>
-//                                                 </a>
-//                                             ))}
-//                                         </div>
-//                                     </div>
-//                                 )}
-//                             </div>
-//                         ))}
-//                     </div>
-//                 </div>
-//             )}
-
+//               </MenuButton>
 //             </div>
-//         ))}
-//         </>
-//     )
-// }
-function HeaderListNavigationMobile(){
-    return(
-        <>
-        {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-            >
-              {item.name}
-            </DisclosureButton>
-          ))}
-        </> 
-    )
+//             {item.subCategorias &&  (
+//               <MenuItems
+//                 transition
+//                 className="relative  mt-2  w-full transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+//               >
+//                 <div className="py-1">
+//                   {item.subCategorias.map((subcategoria) => (
+//                     <MenuItem>
+//                       <a
+//                         href="#"
+//                         className="block px-4 py-2 font-medium text-sm text-[#999] "
+//                       >
+//                         {subcategoria.nameSub}
+//                       </a>
+//                     </MenuItem>
+//                   ))}
+//                 </div>
+//               </MenuItems>
+//             )}
+//           </Menu>
+//         <hr />
+//       </>
+//     ))}
+//   </div>
+// )}
+
+
+function HeaderListNavigationMobile() {
+  const [openMenu, setOpenMenu] = useState(null);
+  const [openSubMenu, setOpenSubMenu] = useState(null);
+
+  const toggleMenu = (index) => {
+    setOpenMenu(openMenu === index ? null : index); 
+  };
+
+  const toggleSubMenu = (index) => {
+    setOpenSubMenu(openSubMenu === index ? null : index); 
+  };
+
+  return (
+    <div className="text-center">
+      {navigation.map((item, index) => (
+        <div key={index} className="relative text-center">
+          <Menu as="div" className="relative text-center">
+            <div className="text-center">
+              <MenuButton
+                onClick={() => toggleMenu(index)}
+                className="inline-flex text-center w-full justify-center px-3 py-4 text-sm font-medium text-gray-900 border-0 btn-mobile-menu"
+              >
+                {item.name}
+                {item.subCategorias && (
+                  <IoIosArrowDown
+                    className={`ml-2 transition-transform duration-300 ${openMenu === index ? 'rotate-180' : 'rotate-0'}`}
+                  />
+                )}
+              </MenuButton>
+            </div>
+            {item.subCategorias && (
+              <MenuItems
+                transition
+                className="relative mt-2 w-full transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+              >
+                <div className="py-1">
+                  {item.subCategorias.map((subcategoria, subIndex) => (
+                    <div key={subIndex} className="relative">
+                      <Menu as="div" className="relative">
+                        <div>
+                          <MenuButton
+                            onClick={() => toggleSubMenu(subIndex)}
+                            className="inline-flex text-center w-full justify-center block px-4 py-2 font-medium text-sm text-[#999] w-full text-left btn-mobile-menu"
+                          >
+                            {subcategoria.nameSub}
+                            {subcategoria.subCategoriaDois && (
+                              <IoIosArrowDown
+                                className={`ml-2 transition-transform duration-300 ${openSubMenu === subIndex ? 'rotate-180' : 'rotate-0'}`}
+                              />
+                            )}
+                          </MenuButton>
+                        </div>
+                        {subcategoria.subCategoriaDois && (
+                          <MenuItems
+                            transition
+                            className="relative mt-2 w-full transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+                          >
+                            <div className="py-1">
+                              {subcategoria.subCategoriaDois.map((subSubCategoria, subSubIndex) => (
+                                <MenuItem key={subSubIndex}>
+                                  <a
+                                    href="#"
+                                    className="block px-4 py-2 font-medium text-sm text-[#999]"
+                                  >
+                                    {subSubCategoria.nameSubCategoriaDois}
+                                  </a>
+                                </MenuItem>
+                              ))}
+                            </div>
+                          </MenuItems>
+                        )}
+                      </Menu>
+                    </div>
+                  ))}
+                </div>
+              </MenuItems>
+            )}
+          </Menu>
+          <hr />
+        </div>
+      ))}
+    </div>
+  );
 }
-export {HeaderListNavigationDesktop, HeaderListNavigationMobile} ;
+export {HeaderListNavigationDesktop, HeaderListNavigationMobile};
